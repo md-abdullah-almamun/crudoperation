@@ -6,10 +6,12 @@ from .models import Profile
 # Create your views here.
 
 def First(request):
-    if request.method == 'get':
-        user_prof = Profile.GET.get('search')
-        print(user_prof)
-    user_prof = Profile.objects.all()
+    if request.method == 'GET':
+        search = request.GET.get('search')
+        if search:
+            pass
+        else:
+            user_prof = Profile.objects.all()
 
     return render(request, 'First.html', locals())
 
