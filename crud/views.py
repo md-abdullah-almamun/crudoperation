@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Profile
 from django.db.models import Q
 
+
 # Create your views here.
 
 def First(request):
@@ -10,7 +11,7 @@ def First(request):
         search = request.GET.get('search')
         if search:
             user_prof = Profile.objects.filter(Q(name__icontains=search) | Q(Email__icontains=search))
-            if not  user_prof:
+            if not user_prof:
                 messages.success(request, "No Such account Exists")
                 return redirect('first')
         else:
@@ -70,3 +71,9 @@ def Create(request):
             messages.error(request, "Fill Up All Field")
 
     return render(request, 'create.html', locals())
+
+
+def Delete(request, id):
+    prof = Profile.objects.get(id=id)
+    prof.delete()
+    return redirect('first')
