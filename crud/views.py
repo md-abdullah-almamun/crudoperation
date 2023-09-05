@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Profile
-
+from django.db.models import Q
 
 # Create your views here.
 
@@ -9,7 +9,10 @@ def First(request):
     if request.method == 'GET':
         search = request.GET.get('search')
         if search:
-            pass
+            user_prof = Profile.objects.filter(Q(name__icontains=search) | Q(Email__icontains=search))
+            if not  user_prof:
+                messages.success(request, "No Such account Exists")
+                return redirect('first')
         else:
             user_prof = Profile.objects.all()
 
