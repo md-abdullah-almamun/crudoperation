@@ -77,3 +77,13 @@ def Delete(request, id):
     prof = Profile.objects.get(id=id)
     prof.delete()
     return redirect('first')
+
+
+def see_Profile(request,id):
+    prof = Profile.objects.get(id=id)
+    return render(request,'SeeFullProfile.html',locals())
+
+
+def update_prof(request,id):
+    prof = Profile.objects.get(id=id)
+    return render(request, 'update_prof.html', locals())
