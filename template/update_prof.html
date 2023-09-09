@@ -14,15 +14,16 @@
         {% csrf_token %}
 
 
+
         <div>
             <div class="mb-3">
                 <label class="form-label">name</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="name">
+                <input type="text" class="form-control" aria-describedby="emailHelp"value="{{prof.name}}" name="name">
             </div>
         </div>
         <div>
             <div class="mb-3">
-                <img src="" alt="">
+                <img style="height:200px; width:200px margin:0 auto;display:block; "src="{{prof.image.url}}" alt="">
                 <label class="form-label">image</label>
                 <input type="file" class="form-control" aria-describedby="emailHelp" name="image">
             </div>
@@ -30,37 +31,38 @@
         <div>
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" name="Email">
+                <input type="email" class="form-control" aria-describedby="emailHelp" value={{prof.Email}}name="Email">
             </div>
         </div>
         <div>
             <div class="mb-3">
                 <label class="form-label">age</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="age">
+                <input type="text" class="form-control" aria-describedby="emailHelp"value="{{prof.age}}" name="age">
             </div>
         </div>
         <div>
             <div class="mb-3">
                 <label class="form-label">address</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="address">
+                <input type="text" class="form-control" aria-describedby="emailHelp"value="{{prof.address}}" name="address">
             </div>
         </div>
         <div>
             <div class="mb-3">
                 <label class="form-label">phone_no</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="phone_no">
+                <input type="text" class="form-control" aria-describedby="emailHelp"value="{{prof.phone_no}}" name="phone_no">
             </div>
         </div>
         <div>
             <div class="mb-3">
                 <label class="form-label">date_of_birth</label>
-                <input type="datetime-local" class="form-control" aria-describedby="emailHelp" name="date_of_birth">
+                <input type="datetime-local" class="form-control" aria-describedby="emailHelp"value="{{prof.date_of_birth}}" name="date_of_birth">
             </div>
         </div>
         <div>
             <div class="mb-3">
                 <label class="form-label">religion</label>
                 <select class="form-select" name="religion" aria-label="Default select example">
+                    <option value="{{prof.religion}}">{{prof.religion}}</option>
                     <option value="Muslim">Muslim</option>
                     <option value="Hindu">Hindu</option>
                     <option value="Christian">Christian</option>
@@ -72,6 +74,7 @@
             <div class="mb-3">
                 <label class="form-label">gender</label>
                 <select class="form-select" name="gender" aria-label="Default select example">
+                    <option value="{{prof.gander}}"> {{prof.gender}}</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Others">Others</option>
